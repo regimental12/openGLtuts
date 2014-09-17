@@ -149,7 +149,7 @@ int cube;
 
 void init()
 {
-    glClearColor(0.0, 0.0, 0.0, 1.0);
+    glClearColor(0.5, 0.5, 0.5, 1.0);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(90, 16/9, 1.0, 500.0);
@@ -158,6 +158,13 @@ void init()
     cube = loadObject("suzanne.obj");
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
+    glEnable(GL_FOG);
+    glFogi(GL_FOG_MODE, GL_EXP);
+    glFogf(GL_FOG_DENSITY, 0.6);
+    /*glFogf(GL_FOG_START, 1.0);
+    glFogf(GL_FOG_END, 5.0);*/
+    float fogcol[] = {0.5 , 0.5 , 0.5 , 0.5};
+    glFogfv(GL_FOG_COLOR, fogcol);
     float col[] = {1.0 , 1.0 , 1.0 , 1.0};
     glLightfv(GL_LIGHT0, GL_DIFFUSE, col);
 }
