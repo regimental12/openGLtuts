@@ -151,7 +151,7 @@ bool vector3d::operator==(const vector3d vec2)
 
 bool vector3d::operator!=(const vector3d vec2)
 {
-    !(*this == vec2);
+    *this != vec2;
 }
 
 std::ostream& operator<<(std::ostream &out, vector3d& vec)
